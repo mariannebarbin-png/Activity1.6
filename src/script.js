@@ -1,4 +1,3 @@
-import './style.css'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 
@@ -16,10 +15,9 @@ const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 
 camera.position.z = 3
 scene.add(camera)
 
-// Sphere Geometry (replacing box)
 const geometry = new THREE.SphereGeometry(1, 32, 32)
 const material = new THREE.MeshBasicMaterial({ 
-    color: 0xff0000
+    color: 0xff9999
 })
 const sphere = new THREE.Mesh(geometry, material)
 scene.add(sphere)
@@ -34,7 +32,6 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 const controls = new OrbitControls(camera, canvas)
 controls.enableDamping = true
 
-// Handle resize
 window.addEventListener('resize', () => {
     // Update sizes
     sizes.width = window.innerWidth
@@ -49,7 +46,6 @@ window.addEventListener('resize', () => {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 })
 
-// Handle fullscreen
 window.addEventListener('dblclick', () => {
     const fullscreenElement = document.fullscreenElement || document.webkitFullscreenElement
     
